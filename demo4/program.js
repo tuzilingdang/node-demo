@@ -1,13 +1,11 @@
+var fs = require('fs');
+var file = process.argv[2];
 
-let readDir = require('./readdir.js');
+fs.readFile(file, 'utf8', function(err, data) {
+	if(err) {
+		console.log(err);
+	}
 
-let folder = process.argv[2];
-let ext = '.' + process.argv[3];
-
-readDir(folder,  ext, function(err, file) {
-	if(err)  return console.log(err);
-
-	console.log(file);
+	var lines = data.split('\n').length - 1;
+	console.log(lines);
 });
-
-
