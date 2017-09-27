@@ -4,8 +4,8 @@ var port = process.argv[2];
 
 var server = net.createServer(function (socket) {
 	var date = strftime('%F %R', new Date());
-	// socket.write(date);
-	socket.end(date); 
+	socket.write(date +  '\n' );
+	socket.end(); 
 });
 
 server.listen(port);
